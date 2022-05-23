@@ -1,4 +1,4 @@
-package com.example.capstone
+package com.example.capstone.ui.activity
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import com.example.capstone.R
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap

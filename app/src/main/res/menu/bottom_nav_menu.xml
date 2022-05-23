@@ -6,11 +6,6 @@
         android:enabled="true"
         android:icon="@drawable/ic_baseline_home_24" />
     <item
-        android:id="@+id/maps"
-        android:title="@string/maps"
-        android:enabled="true"
-        android:icon="@drawable/ic_baseline_map_24" />
-    <item
         android:id="@+id/camera"
         android:title="Camera"
         android:enabled="true"
@@ -20,9 +15,4 @@
         android:title="History"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_history_24" />
-    <item
-        android:id="@+id/profile"
-        android:title="@string/profile"
-        android:enabled="true"
-        android:icon="@drawable/ic_baseline_person_24" />
 </menu>
