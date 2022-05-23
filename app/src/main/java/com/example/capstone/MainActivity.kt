@@ -1,5 +1,6 @@
 package com.example.capstone
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -19,13 +20,13 @@ class MainActivity : AppCompatActivity() {
         val historyFragment = HistoryFragment()
         val profileFragment = ProfileFragment()
 
-        bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNavigationView = findViewById(R.id.bottomNavigationView)
         setCurrentFragment(homeFragment)
 
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> setCurrentFragment(homeFragment)
-                R.id.maps -> setCurrentFragment(mapFragment)
+                R.id.maps -> startActivity(Intent(this, MapsActivity::class.java))
                 R.id.camera -> setCurrentFragment(cameraFragment)
                 R.id.history -> setCurrentFragment(historyFragment)
                 R.id.profile -> setCurrentFragment(profileFragment)
