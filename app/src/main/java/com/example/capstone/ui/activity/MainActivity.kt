@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
-import com.example.capstone.ui.fragment.CameraFragment
 import com.example.capstone.ui.fragment.HistoryFragment
 import com.example.capstone.ui.fragment.HomeFragment
 import com.example.capstone.R
+import com.example.capstone.ui.activity.camera.CameraActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -34,6 +34,11 @@ class MainActivity : AppCompatActivity() {
                 startActivity(i)
                 return true
             }
+            R.id.camera -> {
+                val i = Intent(this, AddNewModelActivity::class.java)
+                startActivity(i)
+                return true
+            }
             else -> return true
         }
     }
@@ -43,7 +48,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val homeFragment = HomeFragment()
-        val cameraFragment = CameraFragment()
         val historyFragment = HistoryFragment()
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
@@ -52,7 +56,6 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> setCurrentFragment(homeFragment)
-                R.id.camera -> setCurrentFragment(cameraFragment)
                 R.id.history -> setCurrentFragment(historyFragment)
             }
             true

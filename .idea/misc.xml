@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android App/Capstone/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.28" />
+        <entry key="..\:/Android App/Capstone/app/src/main/res/drawable-v24/ic_switch_camera.xml" value="0.1" />
         <entry key="..\:/Android App/Capstone/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.28" />
         <entry key="..\:/Android App/Capstone/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.28" />
         <entry key="..\:/Android App/Capstone/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.28" />
@@ -13,11 +14,15 @@
         <entry key="..\:/Android App/Capstone/app/src/main/res/drawable/ic_home_background.xml" value="0.28" />
         <entry key="..\:/Android App/Capstone/app/src/main/res/drawable/ic_home_foreground.xml" value="0.28" />
         <entry key="..\:/Android App/Capstone/app/src/main/res/drawable/ic_launcher_background.xml" value="0.28" />
+        <entry key="..\:/Android App/Capstone/app/src/main/res/drawable/ic_place_holder.xml" value="0.1105" />
+        <entry key="..\:/Android App/Capstone/app/src/main/res/drawable/stroke.xml" value="0.1105" />
+        <entry key="..\:/Android App/Capstone/app/src/main/res/layout/activity_add_new_model.xml" value="0.1" />
+        <entry key="..\:/Android App/Capstone/app/src/main/res/layout/activity_camera.xml" value="0.14" />
         <entry key="..\:/Android App/Capstone/app/src/main/res/layout/activity_login.xml" value="0.15" />
         <entry key="..\:/Android App/Capstone/app/src/main/res/layout/activity_main.xml" value="0.23324275362318841" />
         <entry key="..\:/Android App/Capstone/app/src/main/res/layout/activity_maps.xml" value="0.1" />
         <entry key="..\:/Android App/Capstone/app/src/main/res/layout/activity_register.xml" value="0.25" />
-        <entry key="..\:/Android App/Capstone/app/src/main/res/layout/fragment_camera.xml" value="0.23324275362318841" />
+        <entry key="..\:/Android App/Capstone/app/src/main/res/layout/fragment_camera.xml" value="0.11173184357541899" />
         <entry key="..\:/Android App/Capstone/app/src/main/res/layout/fragment_history.xml" value="0.23324275362318841" />
         <entry key="..\:/Android App/Capstone/app/src/main/res/layout/fragment_home.xml" value="0.23324275362318841" />
         <entry key="..\:/Android App/Capstone/app/src/main/res/layout/fragment_login.xml" value="0.25" />
@@ -29,6 +34,7 @@
         <entry key="..\:/Android App/Capstone/app/src/main/res/mipmap-anydpi-v26/ic_home.xml" value="0.28" />
         <entry key="..\:/Android App/Capstone/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.28" />
         <entry key="..\:/Android App/Capstone/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.28" />
+        <entry key="..\:/Android App/Capstone/app/src/main/res/xml/file_paths.xml" value="0.19270833333333334" />
       </map>
     </option>
   </component>
