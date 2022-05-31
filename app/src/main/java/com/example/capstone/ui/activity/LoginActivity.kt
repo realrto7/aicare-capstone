@@ -11,11 +11,15 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.example.capstone.R
+import com.example.capstone.data.local.UserSession
 import com.example.capstone.data.remote.api.ApiConfig
 import com.example.capstone.data.remote.pojo.LoginInfo
 import com.example.capstone.data.remote.pojo.LoginResponse
 import com.example.capstone.databinding.ActivityLoginBinding
+import com.example.capstone.ui.viewmodel.LoginViewModel
+import com.example.capstone.ui.viewmodel.factory.ViewModelFactory
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,6 +31,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
 
+    private lateinit var loginViewModel: LoginViewModel
+
     private var correctEmail = false
     private var correctPassword = false
 
@@ -34,6 +40,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val pref = UserSession.getInstance(dataStore)
 
         loginButton = binding.loginButton
         emailEditText = binding.emailEditText
@@ -47,6 +55,11 @@ class LoginActivity : AppCompatActivity() {
             passwordEditText.setText(intent.getStringExtra("password"))
             correctPassword = true
         }
+
+        loginViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(pref, this)
+        )[LoginViewModel::class.java]
 
         setLoginButtonEnable()
 
@@ -136,7 +149,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun saveSession(loginResult: LoginInfo) {
         showLoading(false)
-//        loginViewModel.saveToken(loginResult.token as String)
+        loginViewModel.saveToken(loginResult.token as String)
         val i = Intent(this, MainActivity::class.java)
         i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(i)

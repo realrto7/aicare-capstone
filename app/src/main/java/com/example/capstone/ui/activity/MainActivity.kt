@@ -1,16 +1,27 @@
 package com.example.capstone.ui.activity
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.capstone.ui.fragment.HistoryFragment
 import com.example.capstone.ui.fragment.HomeFragment
 import com.example.capstone.R
+import com.example.capstone.data.local.UserSession
 import com.example.capstone.ui.activity.camera.CameraActivity
+import com.example.capstone.ui.viewmodel.MainViewModel
+import com.example.capstone.ui.viewmodel.factory.ViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
+
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.profile -> {
-                val i = Intent(this, LoginActivity::class.java)
+                val i = Intent(this, ProfileActivity::class.java)
                 startActivity(i)
                 return true
             }
@@ -49,6 +60,33 @@ class MainActivity : AppCompatActivity() {
 
         val homeFragment = HomeFragment()
         val historyFragment = HistoryFragment()
+
+        val pref = UserSession.getInstance(dataStore)
+
+        val mainViewModel = ViewModelProvider(this, ViewModelFactory(pref, this))[MainViewModel::class.java]
+
+        mainViewModel.userToken.observe(this)
+        { token: String ->
+            if (token.isEmpty()) {
+                val i = Intent(this, LoginActivity::class.java)
+                startActivity(i)
+                finish()
+            }
+//            else {
+//                binding.rvStories.layoutManager = LinearLayoutManager(this)
+//                val adapter = ListStoriesAdapter()
+//                binding.rvStories.adapter = adapter.withLoadStateFooter(
+//                    footer = LoadingStateAdapter {
+//                        adapter.retry()
+//                    }
+//                )
+//
+//                mainViewModel.getStories(token).observe(this) {
+//                    adapter.submitData(lifecycle, it)
+//                }
+//
+//            }
+        }
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         setCurrentFragment(homeFragment)

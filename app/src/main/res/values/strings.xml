@@ -29,4 +29,6 @@
     <string name="select_image">Please Select Image First</string>
     <string name="camera">Camera</string>
     <string name="login_sucess">Login Success</string>
+    <string name="name">Name</string>
+    <string name="testemail">admin@admin.com</string>
 </resources>
